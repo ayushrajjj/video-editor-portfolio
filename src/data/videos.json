@@ -1,0 +1,51 @@
+[
+    {
+        "id": "1",
+        "title": "Project 1",
+        "category": "Cinematic",
+        "thumbnail": "/thumbnails/video1.png",
+        "videoUrl": "https://youtu.be/8Kdl4fgfsas"
+    },
+    {
+        "id": "2",
+        "title": "Project 2",
+        "category": "Cinematic",
+        "thumbnail": "/thumbnails/video2.png",
+        "videoUrl": "https://youtu.be/7VGwNAGA6C4"
+    },
+    {
+        "id": "3",
+        "title": "Project 3",
+        "category": "Cinematic",
+        "thumbnail": "/thumbnails/video3.png",
+        "videoUrl": "https://youtu.be/gY8O8pZGFpc"
+    },
+    {
+        "id": "4",
+        "title": "Project 4",
+        "category": "Cinematic",
+        "thumbnail": "/thumbnails/video4.png",
+        "videoUrl": "https://youtu.be/788tx_-sawY"
+    },
+    {
+        "id": "5",
+        "title": "Project 5",
+        "category": "Cinematic",
+        "thumbnail": "/thumbnails/video5.png",
+        "videoUrl": "https://youtu.be/p-oU1CfK4Rw"
+    },
+    {
+        "id": "6",
+        "title": "Project 6",
+        "category": "Cinematic",
+        "thumbnail": "/thumbnails/video6.png",
+        "videoUrl": "https://youtu.be/DbpE3NFuJdI"
+    },
+    {
+        "id": "7",
+        "title": "Project 7",
+        "category": "Cinematic",
+        "thumbnail": "/thumbnails/video7.png",
+        "videoUrl": "https://youtu.be/DRxCTWz3nWI"
+    }
+]

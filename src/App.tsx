@@ -1,13 +1,13 @@
 import React, { Suspense, lazy } from 'react';
-import { Navbar } from './components/Navbar';
+import Navbar from './components/Navbar';
 import { Hero } from './components/Hero';
 
 // Lazy load off-screen components for massive performance gains
-const SelectedWork = lazy(() => import('./components/SelectedWork').then(module => ({ default: module.SelectedWork })));
+const SelectedWork = lazy(() => import('./components/SelectedWork'));
 const Process = lazy(() => import('./components/Process').then(module => ({ default: module.Process })));
 const Testimonials = lazy(() => import('./components/Testimonials').then(module => ({ default: module.Testimonials })));
 const Contact = lazy(() => import('./components/Contact').then(module => ({ default: module.Contact })));
-const Footer = lazy(() => import('./components/Footer').then(module => ({ default: module.Footer })));
+const Footer = lazy(() => import('./components/Footer'));
 
 /**
  * Main App component.

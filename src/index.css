@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Playfair Display", ui-sans-serif, system-ui, sans-serif;
   --color-luxury-black: #0B0B0B;
   --color-gold: #D4AF37;
   --color-off-white: #F5F5F5;

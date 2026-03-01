@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Play, ArrowRight } from 'lucide-react';
-import { PROJECTS } from '../data/mock';
-import { VideoModal } from './VideoModal';
+import { motion } from 'motion/react';
+import VideoModal from './VideoModal';
+import projectsData from '../data/videos.json';
 
-/**
- * SelectedWork component displays a grid of featured projects in a large poster style.
- */
-export const SelectedWork: React.FC = () => {
-    const [activeVideo, setActiveVideo] = useState<string | null>(null);
+const PROJECTS = projectsData;
+
+/* SelectedWork Component */
+function SelectedWork() {
+    const [activeVideo, setActiveVideo] = useState(null);
 
     return (
-        <section id="work" className="py-32 bg-black overflow-hidden border-t border-white/5">
+        <section id="work" className="pt-32 pb-16 bg-black overflow-hidden border-t border-white/5">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
 
-                {/* Minimal Centered Header matching Editors Kitchen */}
+                {/* Header Section */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +26,7 @@ export const SelectedWork: React.FC = () => {
                     </h2>
                 </motion.div>
 
-                {/* 3-Column Widescreen Grid */}
+                {/* Project Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 items-center">
                     {PROJECTS.map((project, idx) => (
                         <motion.div
@@ -39,45 +38,34 @@ export const SelectedWork: React.FC = () => {
                             className="group relative aspect-video overflow-hidden bg-[#050505] cursor-pointer shadow-lg"
                             onClick={() => setActiveVideo(project.videoUrl)}
                         >
-                            {/* Base Image */}
                             <img
                                 src={project.thumbnail}
                                 alt="Portfolio Item"
+                                loading="lazy"
                                 className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-[1s] ease-[cubic-bezier(0.25,1,0.5,1)]"
                                 referrerPolicy="no-referrer"
                             />
 
-                            {/* Minimal Black Dimming Overlay */}
+                            {/* Persistent Play Indicator */}
+                            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
+                                <div className="w-12 h-12 bg-black/40 backdrop-blur-sm border border-white/40 rounded-full flex items-center justify-center group-hover:bg-white/10 group-hover:border-white transition-all duration-300">
+                                    <div className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-white border-b-[5px] border-b-transparent ml-1" />
+                                </div>
+                            </div>
+
+                            {/* Hover overlay text/darkening */}
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 whileHover={{ opacity: 1 }}
                                 transition={{ duration: 0.4 }}
-                                className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center pt-2"
+                                className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center pt-[5.5rem] z-20"
                             >
-                                {/* Simple White Play Icon */}
-                                <div className="w-12 h-12 border-2 border-white rounded-full flex items-center justify-center mb-4 opacity-90 hover:opacity-100 transition-opacity">
-                                    <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-white border-b-[6px] border-b-transparent ml-1" />
-                                </div>
-
-                                {/* Utility Text */}
                                 <span className="text-white text-[10px] tracking-[0.2em] font-medium uppercase font-sans">
                                     Play Video
                                 </span>
                             </motion.div>
                         </motion.div>
                     ))}
-                </div>
-
-                {/* Minimal Load More Button */}
-                <div className="mt-20 flex justify-center">
-                    <motion.a
-                        href="https://vimeo.com"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-white/60 hover:text-white text-sm font-serif italic border-b border-white/20 pb-1 transition-colors"
-                    >
-                        Load More
-                    </motion.a>
                 </div>
             </div>
 
@@ -89,4 +77,6 @@ export const SelectedWork: React.FC = () => {
             />
         </section>
     );
-};
+}
+
+export default SelectedWork;

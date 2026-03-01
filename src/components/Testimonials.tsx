@@ -44,7 +44,7 @@ export const Testimonials: React.FC = () => {
                                     {TESTIMONIALS[currentIndex].name}
                                 </span>
                                 <span className="text-[10px] text-white/40 font-light">
-                                    {TESTIMONIALS[currentIndex].role}, <span className="text-gold/80">{TESTIMONIALS[currentIndex].company}</span>
+                                    {TESTIMONIALS[currentIndex].role}
                                 </span>
                             </div>
                         </motion.div>

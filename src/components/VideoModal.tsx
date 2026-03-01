@@ -1,27 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X } from 'lucide-react';
 
-interface VideoModalProps {
-    isOpen: boolean;
-    onClose: () => void;
-    videoUrl: string;
-}
+/* Parses and returns a valid YouTube embed URL. */
+function getYoutubeEmbedUrl(url) {
+    try {
+        const urlObj = new URL(url);
+        if (urlObj.hostname === 'youtu.be') {
+            return `https://www.youtube.com/embed${urlObj.pathname}?autoplay=1`;
+        }
+        if (urlObj.hostname.includes('youtube.com')) {
+            const videoId = urlObj.searchParams.get('v');
+            if (videoId) {
+                return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            }
+        }
+    } catch (e) {
+        // Fallback for flat IDs or malformed URLs
+    }
+    // Attempt to handle raw IDs like dQw4w9WgXcQ
+    if (!url.includes('/') && !url.includes(':') && url.length > 5) {
+        return `https://www.youtube.com/embed/${url}?autoplay=1`;
+    }
+    return url;
+};
 
-/**
- * Reusable modal component to display playing videos with a cinematic backdrop blur.
- */
-export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, videoUrl }) => {
+/* VideoModal Component */
+function VideoModal(props) {
+    const isOpen = props.isOpen;
+    const onClose = props.onClose;
+    const videoUrl = props.videoUrl;
+
     // Prevent scrolling when modal is open
-    React.useEffect(() => {
-        if (isOpen) {
+    useEffect(() => {
+        if (isOpen === true) {
             document.body.style.overflow = 'hidden';
             // Optional ESC key to close
-            const handleEsc = (e: KeyboardEvent) => {
-                if (e.key === 'Escape') onClose();
+            const handleEsc = function (e) {
+                if (e.key === 'Escape') {
+                    onClose();
+                }
             };
             window.addEventListener('keydown', handleEsc);
-            return () => {
+            return function cleanup() {
                 document.body.style.overflow = 'unset';
                 window.removeEventListener('keydown', handleEsc);
             };
@@ -39,7 +60,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, videoUr
                     className="fixed inset-0 z-[100] flex items-center justify-center bg-[#050505]/95 backdrop-blur-xl p-4 md:p-12"
                     onClick={onClose}
                 >
-                    {/* Close Button */}
+                    {/* Close Action */}
                     <button
                         onClick={onClose}
                         className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-50 mix-blend-difference"
@@ -53,19 +74,21 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, videoUr
                         exit={{ scale: 0.95, opacity: 0, y: 20 }}
                         transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                         className="relative w-full max-w-7xl aspect-video bg-black rounded-sm overflow-hidden shadow-2xl border border-white/5"
-                        onClick={(e) => e.stopPropagation()} // Prevent clicking video from closing modal
+                        onClick={function (e) { e.stopPropagation(); }} // Prevent clicking video from closing modal
                     >
-                        <video
-                            src={videoUrl}
-                            autoPlay
-                            controls
-                            className="w-full h-full object-cover"
-                        >
-                            Your browser does not support the video tag.
-                        </video>
+                        <iframe
+                            src={getYoutubeEmbedUrl(videoUrl)}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            loading="lazy"
+                            className="w-full h-full object-cover border-0"
+                            title="YouTube video player"
+                        />
                     </motion.div>
                 </motion.div>
             )}
         </AnimatePresence>
     );
-};
+}
+
+export default VideoModal;

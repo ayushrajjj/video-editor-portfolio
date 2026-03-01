@@ -1,34 +1,33 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 
-/**
- * About section: Dramatic, high-end editorial layout tailored for luxury Indian studio.
- */
-export const About: React.FC = () => {
-    const { scrollYProgress } = useScroll();
+/* About Component */
+function About() {
+    const scrollValues = useScroll();
+    const scrollYProgress = scrollValues.scrollYProgress;
     const yPara = useTransform(scrollYProgress, [0, 1], [0, -100]);
     const yText = useTransform(scrollYProgress, [0, 1], [0, 50]);
 
     return (
         <section id="about" className="py-32 md:py-48 px-6 md:px-12 bg-luxury-black overflow-hidden relative">
 
-            {/* Ambient Depth Backgrounds */}
+            {/* Background elements */}
             <div className="absolute top-1/4 left-[-10%] w-[50vw] h-[50vw] bg-gold/5 blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
             <div className="absolute bottom-1/4 right-[-10%] w-[40vw] h-[40vw] bg-white/5 blur-[100px] rounded-full pointer-events-none mix-blend-screen" />
 
             <div className="max-w-[1600px] mx-auto relative z-10">
 
-                {/* Massive Typography Background Header */}
+                {/* Large Background Text */}
                 <motion.div
                     style={{ y: yText }}
                     className="text-[12vw] font-sans font-black uppercase text-white/[0.02] leading-none tracking-tighter whitespace-nowrap hidden md:block absolute top-[-10%] left-[-5%] -z-10 pointer-events-none"
                 >
-                    EDITOR ATELIER
+                    ARUN P ATELIER
                 </motion.div>
 
                 <div className="flex flex-col lg:flex-row items-center lg:items-end gap-16 lg:gap-24">
 
-                    {/* Editorial Parallax Image Column */}
+                    {/* Left Column */}
                     <div className="w-full lg:w-5/12 relative">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
@@ -44,11 +43,11 @@ export const About: React.FC = () => {
                                 className="w-full h-[120%] object-cover scale-105 grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 ease-out absolute -top-[10%]"
                                 referrerPolicy="no-referrer"
                             />
-                            {/* Cinematic Overlay */}
+                            {/* Overlay */}
                             <div className="absolute inset-0 bg-gradient-to-t from-luxury-black via-transparent to-transparent opacity-80 pointer-events-none" />
                         </motion.div>
 
-                        {/* Geometric Floating Accents */}
+                        {/* Floating Accents */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
@@ -58,7 +57,7 @@ export const About: React.FC = () => {
                         <div className="absolute top-10 -left-10 w-24 h-24 border border-white/10 z-30 mix-blend-overlay rotate-12" />
                     </div>
 
-                    {/* Highly Crafted Typographic Right Column */}
+                    {/* Right Column */}
                     <div className="w-full lg:w-7/12 relative z-30 pb-10">
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
@@ -78,14 +77,14 @@ export const About: React.FC = () => {
 
                             <div className="space-y-8 text-base md:text-lg lg:text-xl text-white/50 font-light leading-relaxed max-w-2xl text-justify">
                                 <p>
-                                    Editor is an exclusive post-production atelier dedicated to the art of high-end commercial editing and narrative film. We transform raw sequence into cinematic prestige.
+                                    ARUN P is an exclusive post-production atelier dedicated to the art of high-end commercial editing and narrative film. We transform raw sequence into cinematic prestige.
                                 </p>
                                 <p className="text-white/80 font-normal italic border-l-2 border-gold/50 pl-6 my-10 py-2">
                                     "Every frame must possess gravity. It’s not about stringing clips together—it’s about weaving an undeniable emotional architecture."
                                 </p>
                             </div>
 
-                            {/* Elevated Metrics Section */}
+                            {/* Metrics */}
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -107,6 +106,8 @@ export const About: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
-};
+}
+
+export default About;
