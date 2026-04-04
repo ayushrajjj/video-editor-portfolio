@@ -102,6 +102,23 @@ function About() {
                                 </div>
                             </motion.div>
 
+                            {/* Client Section */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ delay: 0.6, duration: 1 }}
+                                className="mt-16 pt-12 border-t border-white/5"
+                            >
+                                <div className="text-[10px] uppercase tracking-[0.4em] text-white/20 font-medium mb-8">Trusted By Global Brands</div>
+                                <div className="flex flex-wrap gap-x-12 gap-y-6 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-700">
+                                    {['VOGUE', 'CULT.FIT', 'BMW', 'HYUNDAI', 'RELIANCE'].map((client) => (
+                                        <span key={client} className="text-lg md:text-xl font-sans tracking-tighter font-bold text-white/60 hover:text-white transition-colors cursor-default">
+                                            {client}
+                                        </span>
+                                    ))}
+                                </div>
+                            </motion.div>
+
                         </motion.div>
                     </div>
                 </div>

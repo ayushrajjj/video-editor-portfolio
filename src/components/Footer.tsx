@@ -11,9 +11,12 @@ function Footer() {
                     ARUN P<span className="text-gold opacity-0 group-hover:opacity-100 transition-opacity">.</span>
                 </div>
 
-                <div className="flex items-center gap-8 text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/30 font-semibold">
-                    <motion.a whileHover={{ y: -2 }} href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-off-white transition-colors">Instagram</motion.a>
-                    <motion.a whileHover={{ y: -2 }} href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-off-white transition-colors">LinkedIn</motion.a>
+                <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/30 font-semibold">
+                    <motion.a whileHover={{ y: -2 }} href="https://www.behance.net/arunp40" target="_blank" rel="noreferrer" className="hover:text-off-white transition-colors">Behance</motion.a>
+                    <motion.a whileHover={{ y: -2 }} href="https://www.linkedin.com/in/arun-p-a25126112?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noreferrer" className="hover:text-off-white transition-colors">LinkedIn</motion.a>
+                    <span className="hidden md:inline w-[1px] h-3 bg-white/10" />
+                    <motion.a whileHover={{ y: -2 }} href="#" className="hover:text-off-white transition-colors opacity-60">Privacy Policy</motion.a>
+                    <motion.a whileHover={{ y: -2 }} href="#" className="hover:text-off-white transition-colors opacity-60">Terms</motion.a>
                 </div>
 
                 <div className="text-[10px] uppercase tracking-[0.2em] text-white/20 font-medium">

@@ -1,0 +1,26 @@
+{
+    "name": "Arun P | Professional Video Editor",
+    "short_name": "Arun P",
+    "description": "Professional freelance video editor specializing in cinematic storytelling and premium commercial content.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0B0B0B",
+    "theme_color": "#0B0B0B",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "/favicon-32x32.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        },
+        {
+            "src": "/apple-touch-icon.png",
+            "type": "image/png",
+            "sizes": "180x180"
+        }
+    ]
+}

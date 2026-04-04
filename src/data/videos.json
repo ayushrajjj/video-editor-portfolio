@@ -1,51 +1,79 @@
 [
     {
-        "id": "1",
-        "title": "Project 1",
-        "category": "Cinematic",
-        "thumbnail": "/thumbnails/video1.png",
-        "videoUrl": "https://youtu.be/8Kdl4fgfsas"
-    },
-    {
         "id": "2",
-        "title": "Project 2",
-        "category": "Cinematic",
-        "thumbnail": "/thumbnails/video2.png",
-        "videoUrl": "https://youtu.be/7VGwNAGA6C4"
+        "title": "PUBG teaser",
+        "category": "Gaming",
+        "thumbnail": "/thumbnails/pubg.jpeg",
+        "videoUrl": "https://youtu.be/o-NsCXhB8JA"
     },
     {
         "id": "3",
-        "title": "Project 3",
-        "category": "Cinematic",
-        "thumbnail": "/thumbnails/video3.png",
-        "videoUrl": "https://youtu.be/gY8O8pZGFpc"
+        "title": "YUM YUM videos",
+        "category": "Food",
+        "thumbnail": "/thumbnails/cake.jpeg",
+        "videoUrl": "https://youtu.be/5oFHEAxBUhc"
     },
     {
         "id": "4",
-        "title": "Project 4",
-        "category": "Cinematic",
-        "thumbnail": "/thumbnails/video4.png",
-        "videoUrl": "https://youtu.be/788tx_-sawY"
-    },
-    {
-        "id": "5",
-        "title": "Project 5",
-        "category": "Cinematic",
-        "thumbnail": "/thumbnails/video5.png",
-        "videoUrl": "https://youtu.be/p-oU1CfK4Rw"
+        "title": "Kingfisher - home stadium",
+        "category": "Commercial",
+        "thumbnail": "/thumbnails/kingfisher.jpeg",
+        "videoUrl": "https://youtu.be/CqTXJu8NeDQ"
     },
     {
         "id": "6",
-        "title": "Project 6",
-        "category": "Cinematic",
-        "thumbnail": "/thumbnails/video6.png",
-        "videoUrl": "https://youtu.be/DbpE3NFuJdI"
+        "title": "Swiggy dinner day",
+        "category": "Food",
+        "thumbnail": "/thumbnails/glass.jpeg",
+        "videoUrl": "https://youtu.be/qRh99MSqDQM"
     },
     {
-        "id": "7",
-        "title": "Project 7",
-        "category": "Cinematic",
-        "thumbnail": "/thumbnails/video7.png",
+        "id": "11",
+        "title": "Nora fatehi promo",
+        "category": "Promo",
+        "thumbnail": "/thumbnails/lady.jpeg",
         "videoUrl": "https://youtu.be/DRxCTWz3nWI"
+    },
+    {
+        "id": "12",
+        "title": "ATSS Riyadh",
+        "category": "Event",
+        "thumbnail": "/thumbnails/airplane.jpeg",
+        "videoUrl": "https://youtu.be/xXU9jlOZGB8"
+    },
+    {
+        "id": "13",
+        "title": "Concord",
+        "category": "Automotive",
+        "thumbnail": "/thumbnails/car.jpeg",
+        "videoUrl": "https://youtu.be/WGlpyIfStnA"
+    },
+    {
+        "id": "15",
+        "title": "Max street wear",
+        "category": "Fashion",
+        "thumbnail": "/thumbnails/max.jpeg",
+        "videoUrl": "https://youtu.be/7VGwNAGA6C4"
+    },
+    {
+        "id": "16",
+        "title": "Cult fit promo",
+        "category": "Fitness",
+        "thumbnail": "/thumbnails/cult_fit.jpeg",
+        "videoUrl": "https://youtu.be/p-oU1CfK4Rw"
+    },
+    {
+        "id": "17",
+        "title": "Apache RR310 lauch promo",
+        "category": "Automotive",
+        "thumbnail": "/thumbnails/motorbike.jpeg",
+        "videoUrl": "https://youtu.be/gY8O8pZGFpc"
+    },
+    {
+        "id": "18",
+        "title": "Ember cookware",
+        "category": "Commercial",
+        "thumbnail": "/thumbnails/homecenter.jpeg",
+        "videoUrl": "https://youtu.be/06N14wnMtJU"
     }
 ]

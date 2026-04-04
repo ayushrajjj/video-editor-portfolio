@@ -38,7 +38,7 @@ export const Contact: React.FC = () => {
                     className="flex flex-col sm:flex-row items-center gap-6 w-full justify-center mt-10"
                 >
                     {/* Email Button */}
-                    <a href="mailto:studio@editor.com" className="w-full sm:w-auto">
+                    <a href="mailto:arunakira113@gmail.com" className="w-full sm:w-auto" aria-label="Send an email inquiry to Arun P Studio">
                         <motion.div
                             whileHover={{ scale: 1.02, y: -2 }}
                             whileTap={{ scale: 0.98 }}
@@ -47,13 +47,13 @@ export const Contact: React.FC = () => {
                             <Mail className="w-5 h-5 text-white/50 group-hover:text-gold transition-colors" />
                             <div className="flex flex-col items-start text-left">
                                 <span className="text-[10px] uppercase tracking-widest text-white/40">Direct Inquiry</span>
-                                <span className="text-sm font-medium text-off-white group-hover:text-gold transition-colors">studio@editor.com</span>
+                                <span className="text-sm font-medium text-off-white group-hover:text-gold transition-colors">arunakira113@gmail.com</span>
                             </div>
                             <ArrowUpRight className="w-4 h-4 ml-4 text-white/20 group-hover:text-gold opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
                         </motion.div>
                     </a>
 
-                    <a href="https://wa.me/1234567890" target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+                    <a href="https://wa.me/919738284459?text=Hi%20Arun,%20I'm%20interested%20in%20collaborating%20with%20you%20on%20a%20video%20project." target="_blank" rel="noreferrer" className="w-full sm:w-auto" aria-label="Chat with Arun P on WhatsApp">
                         <motion.div
                             whileHover={{ scale: 1.02, y: -2 }}
                             whileTap={{ scale: 0.98 }}

@@ -1,67 +1,121 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Compass, Focus, Film, Send } from 'lucide-react';
+import { Compass, Focus, Film, Send, LucideIcon } from 'lucide-react';
 
-const NEW_PROCESS_STEPS = [
-    { icon: Compass, title: 'Discovery', description: 'Deep market analysis and brand positioning strategy.' },
-    { icon: Focus, title: 'Creative Direction', description: 'Defining the visual language and narrative architecture.' },
-    { icon: Film, title: 'Cinematic Editing', description: 'Precision cutting, elite sound design, and color grading.' },
-    { icon: Send, title: 'Final Delivery', description: 'Deployment of high-conversion aesthetic assets.' },
+interface ProcessStep {
+    icon: LucideIcon;
+    title: string;
+    description: string;
+    tagline: string;
+}
+
+const NEW_PROCESS_STEPS: ProcessStep[] = [
+    {
+        icon: Compass,
+        title: 'Strategic Discovery',
+        description: 'We begin by deconstructing your brand architecture and audience psychology to define a high-impact narrative strategy.',
+        tagline: 'PHASE 01: INTENT'
+    },
+    {
+        icon: Focus,
+        title: 'Creative Direction',
+        description: 'Sculpting the visual rhythm, pacing, and aesthetic tone that will define your story across every frame.',
+        tagline: 'PHASE 02: SCULPT'
+    },
+    {
+        icon: Film,
+        title: 'Master Edit',
+        description: 'Precision-cutting integrated with elite color science and spatial sound design for an immersive experience.',
+        tagline: 'PHASE 03: CRAFT'
+    },
+    {
+        icon: Send,
+        title: 'Exhibition Ready',
+        description: 'Final refinement and delivery of premium cinematic assets optimized for global digital landscapes.',
+        tagline: 'PHASE 04: SCALE'
+    },
 ];
 
-/**
- * Process component outlines the studio's workflow step-by-step.
- */
 export const Process: React.FC = () => {
     return (
-        <section id="process" className="py-32 md:py-48 px-6 md:px-12 bg-[#050505]">
-            <div className="max-w-[1400px] mx-auto">
+        <section id="process" className="py-32 md:py-64 px-6 md:px-12 bg-luxury-black relative overflow-hidden">
+            {/* Ambient Background Elements */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+                <div className="absolute top-[20%] right-[-10%] w-[40vw] h-[40vw] bg-gold/5 blur-[150px] rounded-full mix-blend-screen" />
+                <div className="absolute bottom-[20%] left-[-10%] w-[30vw] h-[30vw] bg-white/5 blur-[120px] rounded-full mix-blend-screen" />
+            </div>
+
+            <div className="max-w-[1400px] mx-auto relative z-10">
+                {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-24 md:mb-32 max-w-2xl"
+                    transition={{ duration: 1 }}
+                    className="flex flex-col items-center text-center mb-32 md:mb-48"
                 >
-                    <span className="text-xs md:text-sm uppercase tracking-[0.4em] text-white/50 mb-6 block font-medium flex items-center gap-3">
-                        <span className="w-8 h-[1px] bg-white/50"></span>
-                        How We Work
-                    </span>
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-sans font-light text-off-white tracking-tight">
-                        Our Proven <span className="italic text-gold">Process</span>
+                    <span className="text-[10px] md:text-sm uppercase tracking-[0.6em] text-gold mb-8 font-semibold">The Methodology</span>
+                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-sans font-light text-off-white tracking-tighter leading-none mb-12">
+                        How We Forge <br />
+                        <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-off-white to-gold/70">Cinematic Gravity.</span>
                     </h2>
+                    <div className="w-[1px] h-24 bg-gradient-to-b from-gold/50 to-transparent" />
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
-                    {NEW_PROCESS_STEPS.map((step, idx) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: idx * 0.15, duration: 0.8 }}
-                            whileHover={{ y: -10 }}
-                            className="relative group pr-8"
-                        >
-                            {/* Top border indicator */}
-                            <div className="h-[2px] w-full bg-white/5 mb-10 overflow-hidden">
-                                <div className="h-full w-0 group-hover:w-full bg-emerald transition-all duration-700 ease-out" />
-                            </div>
+                {/* Timeline Content */}
+                <div className="relative">
+                    {/* Vertical Connecting Line (Centered) */}
+                    <div className="absolute left-[20px] md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-gold/40 via-white/10 to-transparent hidden md:block" />
 
-                            <div className="flex items-center justify-between mb-8">
-                                <span className="text-5xl font-sans font-light text-white/5 group-hover:text-white/10 transition-colors duration-500 tracking-tighter">
-                                    0{idx + 1}
-                                </span>
-                                <step.icon className="w-6 h-6 text-white/20 group-hover:text-gold transition-colors duration-500" strokeWidth={1.5} />
-                            </div>
+                    <div className="space-y-32 md:space-y-64">
+                        {NEW_PROCESS_STEPS.map((step, idx) => (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 1.2, delay: 0.1 }}
+                                className={`flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-24 relative`}
+                            >
+                                {/* Center Pillar Index */}
+                                <div className="absolute left-[20px] md:left-1/2 md:-translate-x-1/2 top-0 md:top-1/2 md:-translate-y-1/2 flex flex-col items-center z-20">
+                                    <div className="w-10 h-10 md:w-14 md:h-14 bg-[#0B0B0B] border border-gold/30 rounded-full flex items-center justify-center text-xs md:text-sm font-semibold text-gold shadow-[0_0_20px_rgba(212,175,55,0.15)] group-hover:scale-110 transition-transform duration-500">
+                                        0{idx + 1}
+                                    </div>
+                                </div>
 
-                            <h3 className="text-xl md:text-2xl font-sans font-medium text-off-white mb-4 tracking-tight group-hover:text-gold transition-colors duration-500">
-                                {step.title}
-                            </h3>
-                            <p className="text-sm text-white/40 leading-relaxed font-light group-hover:text-white/60 transition-colors duration-500">
-                                {step.description}
-                            </p>
-                        </motion.div>
-                    ))}
+                                {/* Content Side */}
+                                <div className={`w-full md:w-5/12 ml-12 md:ml-0 ${idx % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                                    <motion.div
+                                        initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 1, delay: 0.3 }}
+                                    >
+                                        <span className="text-[10px] uppercase tracking-[0.3em] text-white/40 mb-4 block font-medium">{step.tagline}</span>
+                                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-sans font-light text-off-white mb-6 tracking-tight">
+                                            {step.title}
+                                        </h3>
+                                        <p className="text-sm md:text-base text-white/50 leading-relaxed font-light max-w-md mx-auto md:mx-0 inline-block">
+                                            {step.description}
+                                        </p>
+                                    </motion.div>
+                                </div>
+
+                                {/* Visual Side (Empty space or Icon/Atmosphere) */}
+                                <div className="hidden md:block md:w-5/12">
+                                    <motion.div
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        whileInView={{ opacity: 0.3, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        className={`flex ${idx % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+                                    >
+                                        <step.icon size={120} strokeWidth={1} className="text-white/10" />
+                                    </motion.div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
