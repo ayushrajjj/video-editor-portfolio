@@ -22,17 +22,17 @@ export const Testimonials: React.FC = () => {
 
             <div className="max-w-[1000px] mx-auto w-full relative z-10">
                 <div className="flex justify-center mb-16">
-                    <span className="text-[10px] uppercase tracking-[0.4em] text-white/30 font-medium">Confidential Client Ledger</span>
+                    <span className="text-[10px] uppercase tracking-[0.4em] text-white/30 font-medium">Testimonials</span>
                 </div>
 
                 <div className="relative h-[250px] md:h-[200px] flex items-center justify-center">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentIndex}
-                            initial={{ opacity: 0, y: 10, filter: 'blur(10px)' }}
-                            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                            exit={{ opacity: 0, y: -10, filter: 'blur(10px)' }}
-                            transition={{ duration: 1.5, ease: 'easeInOut' }}
+                            initial={{ opacity: 0, x: 100, scale: 0.95, filter: 'blur(10px)' }}
+                            animate={{ opacity: 1, x: 0, scale: 1, filter: 'blur(0px)' }}
+                            exit={{ opacity: 0, x: -100, scale: 0.95, filter: 'blur(10px)' }}
+                            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                             className="absolute inset-0 flex flex-col items-center justify-start text-center pt-4"
                         >
                             <p className="text-2xl md:text-3xl lg:text-4xl font-sans font-light leading-snug tracking-tight text-off-white mb-8 max-w-4xl">

@@ -3,10 +3,9 @@ import { motion, useScroll, useTransform } from 'motion/react';
 
 /* About Component */
 function About() {
-    const scrollValues = useScroll();
-    const scrollYProgress = scrollValues.scrollYProgress;
-    const yPara = useTransform(scrollYProgress, [0, 1], [0, -100]);
-    const yText = useTransform(scrollYProgress, [0, 1], [0, 50]);
+    const { scrollYProgress } = useScroll();
+    const yPara = useTransform(scrollYProgress, [0, 1], [0, -150]);
+    const yText = useTransform(scrollYProgress, [0, 1], [0, 120]); // Faster parallax for bg text
 
     return (
         <section id="about" className="py-32 md:py-48 px-6 md:px-12 bg-luxury-black overflow-hidden relative">
@@ -19,7 +18,7 @@ function About() {
 
                 {/* Large Background Text */}
                 <motion.div
-                    style={{ y: yText }}
+                    style={{ y: yText, willChange: 'transform' }}
                     className="text-[12vw] font-sans font-black uppercase text-white/[0.02] leading-none tracking-tighter whitespace-nowrap hidden md:block absolute top-[-10%] left-[-5%] -z-10 pointer-events-none"
                 >
                     ARUN P ATELIER
@@ -37,7 +36,7 @@ function About() {
                             className="aspect-[3/4] overflow-hidden bg-[#050505] relative z-20 shadow-[0_30px_60px_rgba(0,0,0,0.5)] border border-white/5"
                         >
                             <motion.img
-                                style={{ y: yPara }}
+                                style={{ y: yPara, willChange: 'transform' }}
                                 src="https://images.unsplash.com/photo-1540316279186-b4fe1300958e?q=80&w=1964&auto=format&fit=crop"
                                 alt="Creative Director"
                                 className="w-full h-[120%] object-cover scale-105 grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 ease-out absolute -top-[10%]"
@@ -71,17 +70,66 @@ function About() {
                                 The Studio
                             </span>
 
-                            <h2 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-sans font-light leading-[1.05] text-off-white tracking-tight mb-10">
-                                Redefining Visual Narratives in <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-off-white to-gold/70">India & Beyond.</span>
+                            <h2 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-sans font-light leading-[1.05] text-off-white tracking-tight mb-10 overflow-hidden">
+                                {"Redefining Visual Narratives in ".split("").map((char, i) => (
+                                    <motion.span
+                                        key={i}
+                                        initial={{ y: "100%" }}
+                                        whileInView={{ y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.8, delay: i * 0.01, ease: [0.33, 1, 0.68, 1] }}
+                                        className="inline-block"
+                                    >
+                                        {char === " " ? "\u00A0" : char}
+                                    </motion.span>
+                                ))}
+                                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-off-white to-gold/70 inline-block overflow-hidden">
+                                    {"India & Beyond.".split("").map((char, i) => (
+                                        <motion.span
+                                            key={i}
+                                            initial={{ y: "100%" }}
+                                            whileInView={{ y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.8, delay: 0.3 + i * 0.015, ease: [0.33, 1, 0.68, 1] }}
+                                            className="inline-block"
+                                        >
+                                            {char === " " ? "\u00A0" : char}
+                                        </motion.span>
+                                    ))}
+                                </span>
                             </h2>
 
                             <div className="space-y-8 text-base md:text-lg lg:text-xl text-white/50 font-light leading-relaxed max-w-2xl text-justify">
-                                <p>
-                                    ARUN P is an exclusive post-production atelier dedicated to the art of high-end commercial editing and narrative film. We transform raw sequence into cinematic prestige.
-                                </p>
-                                <p className="text-white/80 font-normal italic border-l-2 border-gold/50 pl-6 my-10 py-2">
+                                <motion.p
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true }}
+                                    variants={{
+                                        visible: { transition: { staggerChildren: 0.04 } }
+                                    }}
+                                >
+                                    {"ARUN P is an exclusive post-production atelier dedicated to the art of high-end commercial editing and narrative film. We transform raw sequence into cinematic prestige.".split(" ").map((word, i) => (
+                                        <motion.span
+                                            key={i}
+                                            variants={{
+                                                hidden: { opacity: 0, y: 10, filter: 'blur(4px)' },
+                                                visible: { opacity: 1, y: 0, filter: 'blur(0px)' }
+                                            }}
+                                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                            className="inline-block mr-1.5"
+                                        >
+                                            {word}
+                                        </motion.span>
+                                    ))}
+                                </motion.p>
+                                <motion.p
+                                    initial={{ opacity: 0, x: -20, filter: 'blur(8px)' }}
+                                    whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                                    transition={{ duration: 1.2, delay: 0.8 }}
+                                    className="text-white/80 font-normal italic border-l-2 border-gold/50 pl-6 my-10 py-2"
+                                >
                                     "Every frame must possess gravity. It’s not about stringing clips together—it’s about weaving an undeniable emotional architecture."
-                                </p>
+                                </motion.p>
                             </div>
 
                             {/* Metrics */}

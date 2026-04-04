@@ -9,9 +9,15 @@
 
 @layer base {
   body {
-    @apply bg-luxury-black text-off-white    antialiased selection:bg-gold selection:text-black;
+    @apply bg-luxury-black text-off-white antialiased selection:bg-gold selection:text-black;
     scroll-behavior: smooth;
+    cursor: none; /* Hide default cursor */
   }
+}
+
+/* Ensure interactive elements also hide the cursor */
+a, button, [role="button"], .cursor-pointer {
+  cursor: none !important;
 }
 
 .glass-card {

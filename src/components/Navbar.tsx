@@ -1,12 +1,20 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, useScroll, useSpring } from 'motion/react';
 import { Menu, X } from 'lucide-react';
+import Magnetic from './Magnetic';
 
 /* Navbar Component */
 function Navbar() {
     const state = React.useState(false);
     const isOpen = state[0];
     const setIsOpen = state[1];
+
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
 
     function toggleMenu() {
         setIsOpen(!isOpen);
@@ -16,13 +24,20 @@ function Navbar() {
 
     return (
         <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center bg-gradient-to-b from-[#0B0B0B]/90 to-transparent backdrop-blur-sm">
+            {/* Scroll Progress Indicator */}
             <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="text-xl md:text-2xl font-sans tracking-[0.3em] uppercase font-light text-off-white"
-            >
-                ARUN P<span className="text-gold">.</span>
-            </motion.div>
+                className="absolute top-0 left-0 right-0 h-[3px] bg-gold origin-left z-[60]"
+                style={{ scaleX }}
+            />
+            <Magnetic>
+                <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="text-xl md:text-2xl font-sans tracking-[0.3em] uppercase font-light text-off-white cursor-pointer"
+                >
+                    ARUN P<span className="text-gold">.</span>
+                </motion.div>
+            </Magnetic>
 
             <div className="hidden md:flex space-x-12 text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium text-white/50">
                 {menuItems.map(function (item) {

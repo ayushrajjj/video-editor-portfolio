@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { Play } from 'lucide-react';
+import Magnetic from './Magnetic';
 
 /**
  * Hero section component showcasing the studio's primary value proposition
@@ -9,6 +10,8 @@ import { Play } from 'lucide-react';
 export const Hero: React.FC = () => {
     const { scrollY } = useScroll();
     const y1 = useTransform(scrollY, [0, 1000], [0, 200]);
+    const videoScale = useTransform(scrollY, [0, 1000], [1, 1.15]); // Zoom effect
+    const textY = useTransform(scrollY, [0, 500], [0, 80]); // Parallax shift for text
     const opacity = useTransform(scrollY, [0, 500], [1, 0]);
 
     return (
@@ -16,7 +19,7 @@ export const Hero: React.FC = () => {
             {/* Ambient Animated Background */}
             <div className="absolute inset-0 z-0 bg-luxury-black overflow-hidden">
                 {/* Cinematic Video Background Base */}
-                <motion.div style={{ y: y1 }} className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <motion.div style={{ y: y1, scale: videoScale, willChange: 'transform' }} className="absolute inset-0 z-0 overflow-hidden pointer-events-none origin-center">
                     <iframe
                         src="https://www.youtube.com/embed/8Kdl4fgfsas?autoplay=1&mute=1&loop=1&playlist=8Kdl4fgfsas&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
                         title="Showreel Hero Video"
@@ -55,8 +58,8 @@ export const Hero: React.FC = () => {
             </div>
 
             <motion.div
-                style={{ opacity }}
-                className="relative z-20 text-center px-6 md:px-12 max-w-7xl mx-auto flex flex-col items-center justify-center w-full"
+                style={{ opacity, y: textY }}
+                className="relative z-20 text-center px-6 md:px-12 max-w-7xl mx-auto flex flex-col items-center justify-center w-full pt-20 md:pt-32"
             >
                 <motion.span
                     initial={{ opacity: 0, y: 20 }}
@@ -68,40 +71,82 @@ export const Hero: React.FC = () => {
                 </motion.span>
 
                 <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-sans font-light leading-[1.1] md:leading-[1.1] mb-12 tracking-tight w-full max-w-3xl lg:max-w-5xl pr-4"
+                    className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-sans font-light leading-[1.05] mb-12 tracking-tight w-full max-w-7xl px-4"
                 >
-                    Crafting Cinematic Stories as a <br className="hidden sm:block" />
-                    <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-off-white to-gold/70 pr-2 pb-2">Freelance Video Editor</span>.
+                    {"Crafting Cinematic Stories as a ".split(" ").map((word, wordIdx) => (
+                        <span key={wordIdx} className="inline-block whitespace-nowrap overflow-hidden">
+                            {word.split("").map((char, charIdx) => (
+                                <motion.span
+                                    key={charIdx}
+                                    initial={{ y: "100%" }}
+                                    animate={{ y: 0 }}
+                                    transition={{
+                                        duration: 0.8,
+                                        delay: 0.4 + (wordIdx * 0.1) + (charIdx * 0.01),
+                                        ease: [0.33, 1, 0.68, 1]
+                                    }}
+                                    className="inline-block"
+                                >
+                                    {char}
+                                </motion.span>
+                            ))}
+                            {"\u00A0"}
+                        </span>
+                    ))}
+                    <br className="hidden md:block" />
+                    <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-off-white to-gold/70 inline-block overflow-hidden pb-2">
+                        {"Freelance Video Editor".split(" ").map((word, wordIdx) => (
+                            <span key={wordIdx} className="inline-block whitespace-nowrap overflow-hidden">
+                                {word.split("").map((char, charIdx) => (
+                                    <motion.span
+                                        key={charIdx}
+                                        initial={{ y: "100%" }}
+                                        animate={{ y: 0 }}
+                                        transition={{
+                                            duration: 0.8,
+                                            delay: 0.8 + (wordIdx * 0.1) + (charIdx * 0.01),
+                                            ease: [0.33, 1, 0.68, 1]
+                                        }}
+                                        className="inline-block"
+                                    >
+                                        {char}
+                                    </motion.span>
+                                ))}
+                                {"\u00A0"}
+                            </span>
+                        ))}
+                    </span>
                 </motion.h1>
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+                    transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
                     className="flex flex-col md:flex-row items-center justify-center gap-6"
                 >
-                    <motion.a
-                        href="#work"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="group relative px-10 py-5 bg-off-white text-[#0B0B0B] text-xs uppercase tracking-[0.2em] font-semibold transition-all flex items-center gap-3 overflow-hidden"
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                        View Our Work <Play size={14} fill="currentColor" aria-hidden="true" />
-                    </motion.a>
+                    <Magnetic>
+                        <motion.a
+                            href="#work"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="group relative px-10 py-5 bg-off-white text-[#0B0B0B] text-xs uppercase tracking-[0.2em] font-semibold transition-all flex items-center gap-3 overflow-hidden shadow-2xl"
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                            View Our Work <Play size={14} fill="currentColor" aria-hidden="true" />
+                        </motion.a>
+                    </Magnetic>
 
-                    <motion.a
-                        href="#contact"
-                        aria-label="Contact Arun P to collaborate on a video project"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="group px-10 py-5 bg-white/5 backdrop-blur-md border border-white/10 text-off-white text-xs uppercase tracking-[0.2em] font-medium hover:bg-white/10 transition-all duration-300 hover:border-white/30 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
-                    >
-                        Let's Collaborate
-                    </motion.a>
+                    <Magnetic>
+                        <motion.a
+                            href="#contact"
+                            aria-label="Contact Arun P to collaborate on a video project"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="group px-10 py-5 bg-white/5 backdrop-blur-md border border-white/10 text-off-white text-xs uppercase tracking-[0.2em] font-medium hover:bg-white/10 transition-all duration-300 hover:border-white/30 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
+                        >
+                            Let's Collaborate
+                        </motion.a>
+                    </Magnetic>
                 </motion.div>
             </motion.div>
 
