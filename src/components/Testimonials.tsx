@@ -1,6 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { TESTIMONIALS } from '../data/mock';
+// Testimonials data defined directly to ensure sync
+const TESTIMONIALS = [
+    {
+        id: '1',
+        name: 'Soubarna K.',
+        role: 'Managed Arun directly',
+        company: 'LinkedIn Recommendation',
+        content: 'Extremely diligent and responsible individual, willing to innovate and adhere to changing working dynamics. A team player and can effectively accomplish any video editing challenges.',
+    },
+    {
+        id: '2',
+        name: 'Baidik Deb',
+        role: 'Executive Producer | Creative Planning Manager | Dad',
+        company: 'Vedic Films (Arun\'s mentor)',
+        content: 'Arun was the senior editor at Vedic Films and I am extremely happy with his efforts and creativity and dedication to the job.',
+    },
+    {
+        id: '3',
+        name: 'Tom Benny',
+        role: 'A salesman that loves his product.',
+        company: 'Arun\'s client',
+        content: 'Arun is a master of his craft. Working with him, is always a pleasure.',
+    },
+    {
+        id: '4',
+        name: 'Pamela Gupta',
+        role: 'Brand Services Director at MullenLowe Lintas Group',
+        company: 'Arun was Pamela\'s client',
+        content: 'Skilled professional with passion and expertise in delivering work within stringent timelines.',
+    },
+];
 
 /**
  * Testimonials component displays minimal, elegant client feedback.
@@ -25,7 +55,7 @@ export const Testimonials: React.FC = () => {
                     <span className="text-[10px] uppercase tracking-[0.4em] text-white/30 font-medium">Testimonials</span>
                 </div>
 
-                <div className="relative h-[250px] md:h-[200px] flex items-center justify-center">
+                <div className="relative min-h-[300px] md:min-h-[250px] flex items-center justify-center">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentIndex}
@@ -46,6 +76,11 @@ export const Testimonials: React.FC = () => {
                                 <span className="text-[10px] text-white/40 font-light">
                                     {TESTIMONIALS[currentIndex].role}
                                 </span>
+                                {TESTIMONIALS[currentIndex].company && (
+                                    <span className="text-[9px] text-white/20 font-light italic">
+                                        {TESTIMONIALS[currentIndex].company}
+                                    </span>
+                                )}
                             </div>
                         </motion.div>
                     </AnimatePresence>

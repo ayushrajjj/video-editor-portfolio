@@ -8,7 +8,7 @@ function About() {
     const yText = useTransform(scrollYProgress, [0, 1], [0, 120]); // Faster parallax for bg text
 
     return (
-        <section id="about" className="py-32 md:py-48 px-6 md:px-12 bg-luxury-black overflow-hidden relative">
+        <section id="about" className="py-20 md:py-32 lg:py-48 px-4 sm:px-6 md:px-12 bg-luxury-black overflow-hidden relative">
 
             {/* Background elements */}
             <div className="absolute top-1/4 left-[-10%] w-[50vw] h-[50vw] bg-gold/5 blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
@@ -70,7 +70,7 @@ function About() {
                                 The Studio
                             </span>
 
-                            <h2 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-sans font-light leading-[1.05] text-off-white tracking-tight mb-10 overflow-hidden">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-sans font-light leading-[1.05] text-off-white tracking-tight mb-8 md:mb-10 overflow-hidden">
                                 {"Redefining Visual Narratives in ".split("").map((char, i) => (
                                     <motion.span
                                         key={i}
@@ -99,7 +99,7 @@ function About() {
                                 </span>
                             </h2>
 
-                            <div className="space-y-8 text-base md:text-lg lg:text-xl text-white/50 font-light leading-relaxed max-w-2xl text-justify">
+                            <div className="space-y-6 md:space-y-8 text-sm sm:text-base md:text-lg lg:text-xl text-white/50 font-light leading-relaxed max-w-2xl text-justify">
                                 <motion.p
                                     initial="hidden"
                                     whileInView="visible"

@@ -1,79 +1,142 @@
 [
     {
-        "id": "2",
-        "title": "PUBG teaser",
-        "category": "Gaming",
-        "thumbnail": "/thumbnails/pubg.jpeg",
-        "videoUrl": "https://youtu.be/o-NsCXhB8JA"
-    },
-    {
-        "id": "3",
-        "title": "YUM YUM videos",
-        "category": "Food",
-        "thumbnail": "/thumbnails/cake.jpeg",
-        "videoUrl": "https://youtu.be/5oFHEAxBUhc"
-    },
-    {
-        "id": "4",
-        "title": "Kingfisher - home stadium",
-        "category": "Commercial",
-        "thumbnail": "/thumbnails/kingfisher.jpeg",
-        "videoUrl": "https://youtu.be/CqTXJu8NeDQ"
-    },
-    {
-        "id": "6",
-        "title": "Swiggy dinner day",
-        "category": "Food",
-        "thumbnail": "/thumbnails/glass.jpeg",
-        "videoUrl": "https://youtu.be/qRh99MSqDQM"
-    },
-    {
-        "id": "11",
-        "title": "Nora fatehi promo",
-        "category": "Promo",
-        "thumbnail": "/thumbnails/lady.jpeg",
-        "videoUrl": "https://youtu.be/DRxCTWz3nWI"
-    },
-    {
-        "id": "12",
-        "title": "ATSS Riyadh",
-        "category": "Event",
-        "thumbnail": "/thumbnails/airplane.jpeg",
-        "videoUrl": "https://youtu.be/xXU9jlOZGB8"
-    },
-    {
-        "id": "13",
-        "title": "Concord",
-        "category": "Automotive",
-        "thumbnail": "/thumbnails/car.jpeg",
-        "videoUrl": "https://youtu.be/WGlpyIfStnA"
-    },
-    {
-        "id": "15",
-        "title": "Max street wear",
+        "id": "1",
+        "title": "Max Street Wear",
         "category": "Fashion",
         "thumbnail": "/thumbnails/max.jpeg",
         "videoUrl": "https://youtu.be/7VGwNAGA6C4"
     },
     {
-        "id": "16",
+        "id": "2",
+        "title": "Groove n Move Dance promo",
+        "category": "Dance",
+        "thumbnail": "/thumbnails/Groove and move.jpeg",
+        "videoUrl": "https://youtu.be/cAKzRxqgDoM"
+    },
+    {
+        "id": "3",
+        "title": "Nora Fatehi",
+        "category": "Fitness",
+        "thumbnail": "/thumbnails/cult_fit2.jpeg",
+        "videoUrl": "https://youtu.be/DRxCTWz3nWI"
+    },
+    {
+        "id": "4",
+        "title": "Hero Xpulse promo",
+        "category": "Automotive",
+        "thumbnail": "/thumbnails/motorbike.jpeg",
+        "videoUrl": "https://youtu.be/hxqHXIqOQdc"
+    },
+    {
+        "id": "5",
+        "title": "Signature final",
+        "category": "Commercial",
+        "thumbnail": "/thumbnails/signature-final.jpeg",
+        "videoUrl": "https://youtu.be/lBsP1Ji-aTc"
+    },
+    {
+        "id": "6",
+        "title": "Apache RR310 launch promo",
+        "category": "Automotive",
+        "thumbnail": "/thumbnails/apache.jpeg",
+        "videoUrl": "https://youtu.be/gY8O8pZGFpc"
+    },
+    {
+        "id": "7",
+        "title": "Azar - your own friend caster",
+        "category": "Commercial",
+        "thumbnail": "/thumbnails/lady.jpeg",
+        "videoUrl": "https://youtu.be/wH62aRoUQaw"
+    },
+    {
+        "id": "8",
+        "title": "Atss Riyadh",
+        "category": "Real Estate",
+        "thumbnail": "/thumbnails/atss_riyadh.jpeg",
+        "videoUrl": "https://www.youtube.com/watch?v=xXU9jlOZGB8"
+    },
+    {
+        "id": "9",
+        "title": "Infosys X KIA",
+        "category": "Commercial",
+        "thumbnail": "/thumbnails/car.jpeg",
+        "videoUrl": "https://youtu.be/788tx_-sawY"
+    },
+    {
+        "id": "10",
+        "title": "Liv space - client testimonial",
+        "category": "Commercial",
+        "thumbnail": "/thumbnails/Livespace client testimonial.jpeg",
+        "videoUrl": "https://youtu.be/mv2Tq406mnM"
+    },
+    {
+        "id": "11",
+        "title": "LAFZ - Deodorant",
+        "category": "Commercial",
+        "thumbnail": "/thumbnails/lafz.jpeg",
+        "videoUrl": "https://youtu.be/Z-XDnZCves8"
+    },
+    {
+        "id": "12",
+        "title": "Aethereus - Myridius brand video",
+        "category": "Commercial",
+        "thumbnail": "/thumbnails/aetherus.jpeg",
+        "videoUrl": "https://youtu.be/omN6oMKW6qM"
+    },
+    {
+        "id": "13",
         "title": "Cult fit promo",
         "category": "Fitness",
         "thumbnail": "/thumbnails/cult_fit.jpeg",
         "videoUrl": "https://youtu.be/p-oU1CfK4Rw"
     },
     {
+        "id": "14",
+        "title": "Swiggy dinner day",
+        "category": "Food",
+        "thumbnail": "/thumbnails/cake.jpeg",
+        "videoUrl": "https://youtu.be/qRh99MSqDQM"
+    },
+    {
+        "id": "15",
+        "title": "Ember cookware",
+        "category": "Cookware",
+        "thumbnail": "/thumbnails/ember.jpeg",
+        "videoUrl": "https://youtu.be/06N14wnMtJU"
+    },
+    {
+        "id": "16",
+        "title": "Dreamscape",
+        "category": "Creative",
+        "thumbnail": "/thumbnails/airplane.jpeg",
+        "videoUrl": "https://www.youtube.com/watch?v=ya9h0L5ltBM"
+    },
+    {
         "id": "17",
-        "title": "Apache RR310 lauch promo",
-        "category": "Automotive",
-        "thumbnail": "/thumbnails/motorbike.jpeg",
-        "videoUrl": "https://youtu.be/gY8O8pZGFpc"
+        "title": "Concord",
+        "category": "Real-estate",
+        "thumbnail": "/thumbnails/concord.jpeg",
+        "videoUrl": "https://youtu.be/WGlpyIfStnA"
     },
     {
         "id": "18",
-        "title": "Ember cookware",
-        "category": "Commercial",
-        "thumbnail": "/thumbnails/homecenter.jpeg",
-        "videoUrl": "https://youtu.be/06N14wnMtJU"
+        "title": "PUBG teaser",
+        "category": "Gaming",
+        "thumbnail": "/thumbnails/pubg.jpeg",
+        "videoUrl": "https://youtu.be/o-NsCXhB8JA"
+    },
+    {
+        "id": "r1",
+        "title": "TTM",
+        "category": "Instagram Reels",
+        "thumbnail": "/thumbnails/gym_run.jpeg",
+        "videoUrl": "https://youtube.com/shorts/F9B3_GNsPgc"
+    },
+    {
+        "id": "r2",
+        "title": "Shambala kitchen- Cocktail",
+        "category": "Instagram Reels",
+        "thumbnail": "/thumbnails/shambala.jpeg",
+        "videoUrl": "https://youtube.com/shorts/IE4GGXKKvTs"
     }
 ]

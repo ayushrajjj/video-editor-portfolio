@@ -10,9 +10,16 @@ function getYoutubeEmbedUrl(url) {
             return `https://www.youtube.com/embed${urlObj.pathname}?autoplay=1`;
         }
         if (urlObj.hostname.includes('youtube.com')) {
-            const videoId = urlObj.searchParams.get('v');
-            if (videoId) {
-                return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            if (urlObj.pathname.startsWith('/shorts/')) {
+                const videoId = urlObj.pathname.split('/')[2];
+                if (videoId) {
+                    return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                }
+            } else {
+                const videoId = urlObj.searchParams.get('v');
+                if (videoId) {
+                    return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                }
             }
         }
     } catch (e) {
@@ -25,11 +32,22 @@ function getYoutubeEmbedUrl(url) {
     return url;
 };
 
+/* Detect if the URL is a YouTube Short */
+function isYoutubeShort(url: string): boolean {
+    try {
+        const urlObj = new URL(url);
+        return urlObj.pathname.startsWith('/shorts/');
+    } catch {
+        return false;
+    }
+}
+
 /* VideoModal Component */
 function VideoModal(props) {
     const isOpen = props.isOpen;
     const onClose = props.onClose;
     const videoUrl = props.videoUrl;
+    const short = isYoutubeShort(videoUrl || '');
 
     // Prevent scrolling when modal is open
     useEffect(() => {
@@ -73,8 +91,11 @@ function VideoModal(props) {
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.95, opacity: 0, y: 20 }}
                         transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                        className="relative w-full max-w-7xl aspect-video bg-black rounded-sm overflow-hidden shadow-2xl border border-white/5"
-                        onClick={function (e) { e.stopPropagation(); }} // Prevent clicking video from closing modal
+                        className={short
+                            ? "relative bg-black rounded-sm overflow-hidden shadow-2xl border border-white/5 h-[85vh] aspect-[9/16]"
+                            : "relative w-full max-w-7xl aspect-video bg-black rounded-sm overflow-hidden shadow-2xl border border-white/5"
+                        }
+                        onClick={function (e) { e.stopPropagation(); }}
                     >
                         <iframe
                             src={getYoutubeEmbedUrl(videoUrl)}

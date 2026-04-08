@@ -132,7 +132,7 @@ export const Hero: React.FC = () => {
                             className="group relative px-10 py-5 bg-off-white text-[#0B0B0B] text-xs uppercase tracking-[0.2em] font-semibold transition-all flex items-center gap-3 overflow-hidden shadow-2xl"
                         >
                             <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                            View Our Work <Play size={14} fill="currentColor" aria-hidden="true" />
+                            View my Work <Play size={14} fill="currentColor" aria-hidden="true" />
                         </motion.a>
                     </Magnetic>
 
